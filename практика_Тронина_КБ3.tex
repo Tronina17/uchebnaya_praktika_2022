@@ -1,0 +1,134 @@
+\documentclass[10pt,pdf,hyperref={unicode}]{beamer}
+
+\usepackage{lmodern}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{ragged2e}
+\newcommand{\jj}{\righthyphenmin=20 \justifying}
+
+\setbeamertemplate{navigation symbols}{}
+
+\usetheme{CambridgeUS}
+
+\usecolortheme{seahorse}
+
+\title{Игра "Слова из слова"}   
+\author{Студентка 3 курса\\Специальности «Компьютерная безопасность»\\Тронина София} 
+\date{2022 год} 
+
+\begin{document}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame} 
+	
+   	\begin{frame}
+		\frametitle{Суть игры}
+		\jj
+		Рандомно выбирается слово, из которого можно составить другие слова. \\
+		~\\Первым ходит игрок. После того как он записал свое слово, компьютер составляет свое. Каждая буква может встречаться в слове один раз и слова не могут повторяться. Минимальная длина слова - 3 буквы. За каждую использованную букву дается 1 балл. \\
+		~\\Игра заканчивается, если все возможные слова были введены или игрок нажал на кнопку "Закончить игру". \\
+		~\\Игрок выигрывает, если у него на счету больше баллов, чем у компьютера.
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Описание}
+		\jj
+		После импорта всех нужных библиотек (tkinter, random, messagebox). 
+		
+		Необходимо выбрать основное слово.
+		\begin{figure}[h]
+			\includegraphics[width=0.7\linewidth]{1.png}
+			\label{fig:mpr}
+		\end{figure}
+		\jj
+		Также необходимо ввести некоторые дополнительные пометки:
+		\begin{figure}[h]
+			\includegraphics[width=0.8\linewidth]{2.png}
+			\includegraphics[width=0.8\linewidth]{3.png}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}
+		\jj
+		Затем создадим класс для кнопок, где пропишем кнопки для ввода букв, и также дополнительные кнопки "Записать" и "Очистить". 
+		\begin{figure}[h]
+			\includegraphics[width=0.7\linewidth]{4.png}
+		\end{figure}
+		\jj
+		У кнопок-букв присутствует две команды. Первая отвечает за изменение статуса кнопки, а вторая - вывод буквы на экран:
+		\begin{figure}[h]
+			\includegraphics[width=0.9\linewidth]{5.png}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\jj
+		Кнопка "Записать" имеет одну команду, но она включает в себя несколько подпунктов: запись слова игрока и компьютера, подсчет баллов, появления информационных окон в случаях, если введенное слово уже присутствует на экране или все возможные слова были введены. 
+		 \begin{figure}[h]
+		 \includegraphics[width=0.8\linewidth]{6.png}
+		 \includegraphics[width=0.9\linewidth]{7.png}
+		 \end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{figure}[h]
+		\includegraphics[width=0.8\linewidth]{8.png}
+		\end{figure}
+		\jj
+		Количество возможных слов считается с помощью дополнительной функции:
+		\begin{figure}[h]
+			\includegraphics[width=0.8\linewidth]{9.png}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\jj
+		Кнопка "Очистить" также имеет одну команду: она стирает написанное слово полностью:
+		\begin{figure}[h]
+			\includegraphics[width=0.7\linewidth]{10.png}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Формирование окна}
+		\jj
+		Теперь необходимо приступить к оформлению самого окна игры:
+		\begin{figure}[h]
+			\includegraphics[width=0.7\linewidth]{11.png}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}
+		\jj
+		С помощью цикла формируем буквы-кнопки:
+		\begin{figure}[h]
+			\includegraphics[width=0.7\linewidth]{12.png}
+		\end{figure}
+		\jj
+		Затем необходима еще одна кнопка: "Закончить игру". Ее можно нажать в любой момент игры.
+		\begin{figure}[h]
+			\includegraphics[width=1.0\linewidth]{13.png}
+		\end{figure}
+		\jj
+		Она имеет две команды: вывод информационного окна с информацией о том, кто выиграл, и закрытие основного окна:
+		\begin{figure}[h]
+			\includegraphics[width=1.0\linewidth]{14.png}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Вид игры}
+		\begin{figure}[h]
+			\includegraphics[width=1.0\linewidth]{15.png}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Стратегия игры}
+		\jj
+		Так как в свой ход компьютер записывает слова, которые ранее еще не использовались, то в начале лучше составлять слова как можно длиннее, а затем переходить к более коротким. Таким образом, можно набрать баллов больше, чем у компьютера.
+	\end{frame}
+\end{document}
